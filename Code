@@ -1,0 +1,16 @@
+pip install git+https://github.com/openai/whisper.git
+
+pip install setuptools-rust
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+!sudo apt update && sudo apt install ffmpeg
+
+import whisper
+model = whisper.load_model('large')
+result = model.transcribe("NOMBRE_DEL_ARCHIVO", fp16=False)
+
+transc_rectora_texto = result['text']
+
+transc_rectora_texto 
